@@ -1,0 +1,22 @@
+@use '../utils/functions';
+
+/// Generate align-content classes
+
+$alignContentType: center, flex-start, flex-end, space-between, space-around,
+  stretch, initial, inherit;
+
+@each $value in $alignContentType {
+  .#{"alignContent_" + functions.camelize($value)} {
+    align-content: #{$value};
+  }
+}
+
+/// Generate align-items classes
+$alignItemsType: baseline, center, flex-start, flex-end, stretch, initial,
+  inherit;
+
+@each $value in $alignItemsType {
+  .#{"alignItems_" + functions.camelize($value)} {
+    align-items: #{$value};
+  }
+}

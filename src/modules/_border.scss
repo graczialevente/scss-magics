@@ -1,0 +1,32 @@
+@use '../utils/mixins';
+
+/// @output border-bottom-left-radius
+/// @output border-bottom-right-radius
+/// @output border-top-left-radius
+/// @output border-top-right-radius
+$radiusTypes: (
+  "round": 50%,
+  "initial": initial,
+  "inherit": inherit,
+);
+
+@include mixins.create-property-classes(
+  "border-bottom-left-radius",
+  $radiusTypes,
+  true
+);
+@include mixins.create-property-classes(
+  "border-bottom-right-radius",
+  $radiusTypes,
+  true
+);
+@include mixins.create-property-classes(
+  "border-top-left-radius",
+  $radiusTypes,
+  true
+);
+@include mixins.create-property-classes(
+  "border-top-right-radius",
+  $radiusTypes,
+  true
+);

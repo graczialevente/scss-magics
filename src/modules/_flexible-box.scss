@@ -1,22 +1,19 @@
-@use '../utils/functions';
+@use '../utils/mixins';
 
-/// Generate align-content classes
-
+/// @output align-content
 $alignContentType: center, flex-start, flex-end, space-between, space-around,
   stretch, initial, inherit;
 
-@each $value in $alignContentType {
-  .#{"alignContent_" + functions.camelize($value)} {
-    align-content: #{$value};
-  }
-}
+@include mixins.create-property-classes("align-content", $alignContentType);
 
-/// Generate align-items classes
+/// @output align-items
 $alignItemsType: baseline, center, flex-start, flex-end, stretch, initial,
   inherit;
 
-@each $value in $alignItemsType {
-  .#{"alignItems_" + functions.camelize($value)} {
-    align-items: #{$value};
-  }
-}
+@include mixins.create-property-classes("align-items", $alignItemsType);
+
+/// @output align-self
+$alignSelfType: auto, baseline, center, flex-start, flex-end, stretch, initial,
+  inherit;
+
+@include mixins.create-property-classes("align-self", $alignItemsType);

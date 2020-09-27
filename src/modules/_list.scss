@@ -1,0 +1,10 @@
+@use '../utils/mixins';
+
+$listStyleTypeVariables: disc, circle, square, decimal, decimal-leading-zero,
+  lower-roman, upper-roman, lower-greek, lower-latin, upper-latin, armenian,
+  georgian, lower-alpha, upper-alpha, none, initial, inherit;
+
+@include mixins.create-property-classes(
+  "list-style-type",
+  $listStyleTypeVariables
+);

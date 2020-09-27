@@ -1,0 +1,30 @@
+@use './functions';
+
+/// Generates separate classes for all provided values for that property
+///
+/// @param {string} $propertyName
+/// @param {list} $values
+///
+/// @output create simple class atom
+///
+@mixin create-property-classes($propertyName, $values, $fromMap: false) {
+  @if $fromMap {
+    @each $name, $value in $values {
+      $className: #{functions.camelize($propertyName) +
+        "_" +
+        functions.camelize($name)};
+      .#{$className} {
+        #{$propertyName}: #{$value};
+      }
+    }
+  } @else {
+    @each $value in $values {
+      $className: #{functions.camelize($propertyName) +
+        "_" +
+        functions.camelize($value)};
+      .#{$className} {
+        #{$propertyName}: #{$value};
+      }
+    }
+  }
+}
